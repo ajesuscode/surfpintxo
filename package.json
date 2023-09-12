@@ -1,13 +1,15 @@
 {
-    "name": "surfpintxo",
-    "version": "1.0.0",
+    "name": "surfpintxo7",
+    "version": "1.0.1",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "description": "Opensource bun package to interact with open-meteo api for surfspots",
     "scripts": {
-        "build": "bun run build.mjs",
+        "build-fast": "tsup src/index.ts --format cjs,esm",
+        "build": "bun run build-fast --dts-resolve",
         "prepublishOnly": "bun run build",
-        "start": "bun run ./src/test.ts"
+        "start": "bun run ./src/test.ts",
+        "bundle": "bun build ./src/index.ts  --target bun --minify --outdir ./dist --dts-resolve"
     },
     "files": [
         "dist"
@@ -31,6 +33,7 @@
     "devDependencies": {
         "bun-plugin-dts": "^0.1.0",
         "bun-types": "^1.0.1",
+        "tsup": "^7.2.0",
         "typescript": "^5.1.6"
     }
 }

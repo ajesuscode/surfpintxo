@@ -18,7 +18,13 @@ export default class MarinePintxo extends Pintxo {
         parameters: PintxoMarineParameters
     ) {
         super(latitude, longitude);
-        this.parameters = { ...MarinePintxo.defaultParameters, ...parameters };
+        if (parameters && Object.keys(parameters).length > 0) {
+            console.log("MarinePintxo received parameters:", parameters);
+            this.parameters = parameters;
+        } else {
+            console.log("MarinePintxo using default parameters.");
+            this.parameters = MarinePintxo.defaultParameters;
+        }
     }
 
     async fetchMarineData(): Promise<HourlyMarineData> {

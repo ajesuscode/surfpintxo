@@ -15,17 +15,22 @@ export default class MeteoPintxo extends Pintxo {
     constructor(
         latitude: number,
         longitude: number,
-        parameters: PintxoMeteoParameters = {}
+        parameters: Partial<PintxoMeteoParameters> = {}
     ) {
         super(latitude, longitude);
-        // Merge user-provided parameters with default parameters
-        this.parameters = {
-            ...MeteoPintxo.defaultParameters,
-            ...parameters,
-            hourly: parameters.hourly || MeteoPintxo.defaultParameters.hourly,
-            daily: parameters.daily || MeteoPintxo.defaultParameters.daily,
-            current_weather: parameters.current_weather || false,
-        };
+        console.log("MeteoPintxo received parameters:", parameters);
+        if (parameters && Object.keys(parameters).length > 0) {
+            // If specific parameters are provided, use them
+            this.parameters = {
+                ...parameters,
+                hourly: parameters.hourly ?? [],
+                daily: parameters.daily ?? [],
+                current_weather: parameters.current_weather ?? false,
+            };
+        } else {
+            // Otherwise, use the default parameters
+            this.parameters = MeteoPintxo.defaultParameters;
+        }
     }
 
     async fetchMeteoData(): Promise<PintxoMeteoData> {

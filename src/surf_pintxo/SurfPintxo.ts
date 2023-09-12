@@ -26,12 +26,13 @@ export default class SurfPintxo extends Pintxo {
         marineData: HourlyMarineData | null;
         meteoData: PintxoMeteoData | null;
     }> {
-        // Replace 'any' with the actual types
         try {
+            console.log("Before fetching data:", this);
             await Promise.all([
                 this.marinePintxo.fetchMarineData(),
                 this.meteoPintxo.fetchMeteoData(),
             ]);
+            console.log("After fetching data:", this);
             return {
                 marineData: this.marinePintxo.marineData,
                 meteoData: this.meteoPintxo.meteoData,

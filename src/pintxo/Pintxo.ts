@@ -11,11 +11,17 @@ export default abstract class Pintxo {
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) {
-                throw new Error(
-                    `API request failed: ${response.status} - ${response.statusText}`
-                );
+                const responseBody = await response.json(); // Assuming the API returns JSON
+                if (responseBody.error && responseBody.reason) {
+                    console.error(`API Error: ${responseBody.reason}`);
+                    throw new Error(`API Error: ${responseBody.reason}`);
+                } else {
+                    throw new Error(
+                        `API request failed: ${response.status} - ${response.statusText}`
+                    );
+                }
             }
-            return (await response.json()) as T;
+            return await response.json();
         } catch (error) {
             console.error(`Error fetching data from ${apiUrl}:`, error);
             throw error;

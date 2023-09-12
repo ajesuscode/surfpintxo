@@ -1,3 +1,2 @@
-export * from "./marine_pintxo/MarinePintxo";
-export * from "./meteo_pintxo/MeteoPintxo";
-export * from "./surf_pintxo/SurfPintxo";
+import SurfPintxo from "./surf_pintxo/SurfPintxo";
+export default SurfPintxo;
