@@ -1,30 +1,35 @@
 {
-  "name": "surfpintxo",
-  "version": "0.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "description": "",
-  "scripts": {
-    "build": "bun run build.mjs",
-    "prepublishOnly": "bun run build"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "bun"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/wobsoriano/pkg-name#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wobsoriano/pkg-name.git"
-  },
-  "bugs": "https://github.com/wobsoriano/pkg-name/issues",
-  "author": "Robert Soriano <sorianorobertc@gmail.com>",
-  "devDependencies": {
-    "bun-plugin-dts": "^0.1.0",
-    "bun-types": "^1.0.1",
-    "typescript": "^5.1.6"
-  }
+    "name": "surfpintxo",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "description": "Opensource bun package to interact with open-meteo api for surfspots",
+    "scripts": {
+        "build": "bun run build.mjs",
+        "prepublishOnly": "bun run build",
+        "start": "bun run ./src/test.ts"
+    },
+    "files": [
+        "dist"
+    ],
+    "keywords": [
+        "bun",
+        "open-meteo",
+        "surfing",
+        "forecast",
+        "pintxo"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/ajesuscode/pkg-name#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ajesuscode/surfpintxo.git"
+    },
+    "bugs": "https://github.com/ajesuscode/surfpintxo/issues",
+    "author": "ajesuscode",
+    "devDependencies": {
+        "bun-plugin-dts": "^0.1.0",
+        "bun-types": "^1.0.1",
+        "typescript": "^5.1.6"
+    }
 }
