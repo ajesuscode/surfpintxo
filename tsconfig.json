@@ -1,17 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "es2020",
-    "module": "esnext",
-    "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "allowJs": true,
-    "noEmit": true,
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "types": ["bun-types"]
-  }
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "target": "es2020",
+        "module": "esnext",
+        "strict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "noUnusedLocals": true,
+        "noImplicitAny": true,
+        "allowJs": true,
+        "noEmit": false,
+        "outDir": "dist",
+        "declaration": true,
+        "resolveJsonModule": true,
+        "types": ["bun-types"]
+    }
 }
